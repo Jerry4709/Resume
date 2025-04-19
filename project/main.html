@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wachira Temjit | Full‑Stack Developer</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+
+  <style>
+    /* ======= THEME COLOURS ======= */
+    :root{
+      --bg:#0d0d14;
+      --card:#161625dd;
+      --text:#c5c6c7;
+      --accent:#61dafb;
+      --accent-light:#9af0ff;
+      --sub:#ffd580;
+    }
+    [data-theme="light"]{
+      --bg:#f3f3f9;
+      --card:#ffffffcc;
+      --text:#1a1a2b;
+      --accent:#007acc;
+      --accent-light:#40bfff;
+      --sub:#b36b00;
+    }
+
+    /* ======= BASE ======= */
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html,body{
+      height:100%;
+      font-family:'Source Code Pro',monospace;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      scroll-behavior:smooth;
+    }
+
+    /* ======= BACKGROUND ======= */
+    #vantaBg{position:fixed;inset:0;z-index:-3}
+    body::before{         /* เบลอเล็ก ๆ ตรงกลาง */
+      content:"";
+      position:fixed;inset:0;
+      background:radial-gradient(circle at center,transparent 45%,var(--bg) 100%);
+      z-index:-2;pointer-events:none;
+      backdrop-filter:blur(1.5px);
+    }
+
+    /* ======= SCROLLBAR ======= */
+    ::-webkit-scrollbar{width:8px}
+    ::-webkit-scrollbar-thumb{background:var(--accent)33;border-radius:4px}
+    ::-webkit-scrollbar-thumb:hover{background:var(--accent)77}
+
+    /* ======= CARD ======= */
+    .card{
+      width:min(92%,960px);
+      margin:4rem auto;
+      background:var(--card);
+      border-left:6px solid var(--accent);
+      border-radius:10px;
+      padding:3.5rem 3rem;
+      backdrop-filter:blur(4px);
+      box-shadow:0 0 28px #0006;
+      position:relative;
+    }
+
+    /* ======= THEME TOGGLE ======= */
+    .theme-toggle{
+      position:absolute;top:22px;right:26px;
+      background:none;border:2px solid var(--accent);
+      border-radius:50%;width:44px;height:44px;
+      display:grid;place-items:center;
+      color:var(--accent);font-size:1.2rem;cursor:pointer;
+      transition:transform .3s;
+    }
+    .theme-toggle:hover{transform:rotate(20deg)}
+
+    /* ======= HEADER ======= */
+    .profile-pic{
+      width:160px;aspect-ratio:1;border-radius:50%;
+      border:4px solid var(--accent);
+      object-fit:cover;filter:grayscale(.05);
+      cursor:pointer;transition:transform .6s ease;
+    }
+    .profile-pic.flip{transform:rotateY(360deg)}
+
+    /* ======= NEON BRANDING ======= */
+    h1,.subtitle{
+      color:var(--accent);
+      text-shadow:                 /* glow ลดลง */
+        0 0 3px var(--accent),
+        0 0 6px var(--accent-light);
+    }
+    [data-theme="light"] h1,
+    [data-theme="light"] .subtitle{ /* โหมดสว่างเบาลงอีก */
+      text-shadow:0 0 1px var(--accent-light);
+    }
+
+    h1{margin-top:1.5rem;font-size:2.6rem;white-space:nowrap}
+    .subtitle{display:block;margin-top:.35rem;font-size:1.15rem;font-weight:600}
+
+    /* ======= NAV ======= */
+    nav{margin:2.5rem 0 3.5rem;text-align:center}
+    nav a{
+      margin:0 1rem;color:var(--accent);font-weight:600;text-decoration:none;position:relative
+    }
+    nav a::after{
+      content:"";position:absolute;left:0;bottom:-5px;width:100%;height:2px;
+      background:var(--accent);transform:scaleX(0);transform-origin:left;
+      transition:transform .3s;
+    }
+    nav a:hover::after,nav a.active::after{transform:scaleX(1)}
+
+    /* ======= SECTIONS ======= */
+    section{margin-bottom:4rem;opacity:0;transform:translateY(40px)}
+    h2{font-size:1.6rem;color:var(--sub);margin-bottom:1.2rem;text-shadow:0 0 6px var(--sub)55}
+
+    /* ======= SKILLS ======= */
+    .skills-grid{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.3rem}
+    .skill{
+      background:#23233a;padding:.55rem 1.2rem;border-radius:4px;
+      color:var(--accent);cursor:pointer;
+      transition:background .3s,transform .3s;
+    }
+    .skill:hover{background:#2e2e46;transform:translateY(-3px)}
+    [data-theme="light"] .skill{background:#e6f3ff}
+    [data-theme="light"] .skill:hover{background:#cfe8ff}
+
+    /* ======= PROJECTS ======= */
+    .project-link{
+      display:block;padding:1.2rem 1.4rem;background:#1a1a28;
+      border:1px solid #2f2f44;border-radius:8px;margin-bottom:1.2rem;
+      color:inherit;text-decoration:none;
+      transition:background .3s,border .3s,transform .3s;
+    }
+    .project-link:hover{background:#212136;border-color:var(--accent)66;transform:translateY(-4px)}
+    .project-link h3{font-size:1.3rem;color:var(--accent-light);margin-bottom:.4rem}
+
+    /* ======= FOOTER ======= */
+    footer{font-size:.85rem;text-align:center;color:#8f8fa0;margin-top:3rem;opacity:0}
+
+    /* ======= CONSOLE OVERLAY ======= (unchanged) */
+    #consoleOverlay{
+      position:fixed;inset:0;background:rgba(0,0,0,.93);
+      color:#adff2f;font-size:14px;font-family:monospace;
+      z-index:999;display:none;flex-direction:column;padding:1.2rem;
+    }
+    #consoleOutput{flex:1;overflow-y:auto;white-space:pre-wrap}
+    #consoleInput{
+      background:none;border:none;border-top:1px solid #666;
+      color:#adff2f;padding:.6rem;font-family:inherit;outline:none;
+    }
+
+    /* ======= RESPONSIVE ======= */
+    @media(max-width:550px){
+      h1{font-size:2.1rem}
+      .card{padding:2.5rem 1.8rem}
+    }
+  </style>
+</head>
+
+<body>
+  <div id="vantaBg"></div>
+
+  <article class="card">
+    <button class="theme-toggle" aria-label="Toggle theme"><i class='bx bx-sun'></i></button>
+
+    <!-- ======= HEADER ======= -->
+    <header style="text-align:center">
+      <img src="/img/download.png" alt="Wachira Temjit" class="profile-pic" loading="lazy" />
+      <h1>Wachira Temjit</h1>
+      <span class="subtitle">Back-End Developer</span>
+    </header>
+
+    <!-- ======= NAV ======= -->
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- ======= ABOUT ======= -->
+    <section id="about">
+      <h2>// About Me</h2>
+      <p>Passionate full‑stack developer crafting efficient and clean web applications using JavaScript, React, Node.js, and more.</p>
+    </section>
+
+    <!-- ======= EXPERIENCE ======= -->
+    <section id="experience">
+      <h2>// Experience</h2>
+      <div class="job">
+        <h3>&lt;Software Developer&gt; @ ABC Co. <em>(2023 – Present)</em></h3>
+        <ul>
+          <li>Developed responsive web apps with React and Vue.</li>
+          <li>Built scalable RESTful APIs using Node.js & Express.</li>
+          <li>Optimized database operations with MongoDB & SQL.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======= SKILLS ======= -->
+    <section id="skills">
+      <h2>// Skills</h2>
+      <div class="skills-grid">
+        <span class="skill">HTML5 & CSS3</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">C / C++</span>
+        <span class="skill">MQL5</span>
+        <span class="skill">Flutter & Dart</span>
+        <span class="skill">React.js</span>
+        <span class="skill">Node.js & Express</span>
+        <span class="skill">MongoDB & SQL</span>
+        <span class="skill">Git & GitHub</span>
+      </div>
+    </section>
+
+    <!-- ======= PROJECTS ======= -->
+    <section id="projects">
+      <h2>// Projects</h2>
+      <a href="/project/project-teamup.html" class="project-link" target="_blank" rel="noopener">
+        <h3>Team Up Mobile App</h3>
+        <p>App to create and join sports rooms with real‑time chat.</p>
+      </a>
+      <a href="/project/project-tradenews.html" class="project-link" target="_blank" rel="noopener">
+        <h3>EA TradeNews</h3>
+        <p>Automated trading EA triggered by news events.</p>
+      </a>
+      <a href="/project/project-autotopup.html" class="project-link" target="_blank" rel="noopener">
+        <h3>Slip-verifier</h3>
+        <p>Service that automatically tops‑up mobile credit based on usage.</p>
+      </a>
+    </section>
+
+    <!-- ======= CONTACT ======= -->
+    <section id="contact">
+      <h2>// Contact</h2>
+      <p><i class='bx bx-envelope'></i> Email: <a href="mailto:wachira@example.com" class="external">wachira@example.com</a></p>
+      <p><i class='bx bxl-github'></i> GitHub: <a href="https://github.com/wachira" class="external" target="_blank" rel="noopener">github.com/wachira</a></p>
+      <p><i class='bx bxl-linkedin-square'></i> LinkedIn: <a href="https://linkedin.com/in/wachira" class="external" target="_blank" rel="noopener">linkedin.com/in/wachira</a></p>
+    </section>
+
+    <footer>&copy; 2025 Wachira Temjit | Full‑Stack Developer</footer>
+  </article>
+
+  <!-- ======= CONSOLE EASTER‑EGG ======= -->
+  <div id="consoleOverlay">
+    <div id="consoleOutput"></div>
+    <input id="consoleInput" placeholder="type help & press Enter…" autocomplete="off" />
+  </div>
+
+  <!-- ======= LIBRARIES ======= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <script>
+    /* ==== Vanta Net Background ==== */
+    VANTA.NET({
+      el:'#vantaBg',
+      mouseControls:true,touchControls:true,
+      color:0x61dafb,
+      backgroundColor:getComputedStyle(document.documentElement).getPropertyValue('--bg')
+    });
+
+    /* ==== THEME TOGGLE ==== */
+    const toggleBtn=document.querySelector('.theme-toggle');
+    const icon=toggleBtn.firstElementChild;
+    toggleBtn.addEventListener('click',()=>{
+      const light=document.documentElement.getAttribute('data-theme')==='light';
+      document.documentElement.setAttribute('data-theme',light?'dark':'light');
+      icon.className=light?'bx bx-sun':'bx bx-moon';
+    });
+
+    /* ==== PROFILE PIC FLIP + CONFETTI ==== */
+    const pPic=document.querySelector('.profile-pic');
+    pPic.addEventListener('click',()=>{
+      pPic.classList.toggle('flip');
+      confetti({particleCount:150,spread:80,origin:{y:0.3}});
+    });
+
+    /* ==== GSAP REVEAL & NAV ACTIVE ==== */
+    gsap.utils.toArray('section, footer').forEach((sec,i)=>{
+      gsap.fromTo(sec,{opacity:0,y:60},{opacity:1,y:0,
+        scrollTrigger:{trigger:sec,start:'top 80%'},
+        duration:.9,delay:i*.1});
+    });
+    const navLinks=document.querySelectorAll('nav a');
+    const setActive=id=>navLinks.forEach(a=>
+      a.classList.toggle('active',a.getAttribute('href')==='#'+id));
+    gsap.utils.toArray('section').forEach(sec=>{
+      ScrollTrigger.create({trigger:sec,start:'top center',end:'bottom center',
+        onToggle:s=>s.isActive&&setActive(sec.id)});
+    });
+
+    /* ==== CONSOLE OVERLAY ( ` to toggle ) ==== */
+    const overlay=document.getElementById('consoleOverlay');
+    const input=document.getElementById('consoleInput');
+    const output=document.getElementById('consoleOutput');
+    const cmds={
+      help:"Available commands: help, about, credits, clear",
+      about:"Hi! I'm Wachira – full‑stack dev who loves Easter eggs.",
+      credits:"Built with ❤ & JS. Confetti by canvas‑confetti.",
+      secret:"You found the secret command! 🎉"
+    };
+    const write=txt=>output.textContent+=`\n$ ${txt}`;
+    document.addEventListener('keydown',e=>{
+      if(e.key==='`'&&e.target!==input){
+        overlay.style.display=overlay.style.display==='flex'?'none':'flex';
+        input.focus();
+      }
+    });
+    input.addEventListener('keydown',e=>{
+      if(e.key==='Enter'){
+        const val=input.value.trim();input.value='';if(!val)return;
+        write(val);write(cmds[val]??'command not found');
+        output.scrollTop=output.scrollHeight;
+      }
+      if(e.key==='Escape') overlay.style.display='none';
+    });
+
+    /* ==== KONAMI -> MATRIX CONFETTI ==== */
+    const konami=["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft",
+                  "ArrowRight","ArrowLeft","ArrowRight","b","a"];let k=0;
+    document.addEventListener('keydown',e=>{
+      k=(e.key===konami[k])?k+1:0;
+      if(k===konami.length){matrixBurst();k=0;}
+    });
+    function matrixBurst(){
+      for(let i=0;i<400;i++)
+        confetti({particleCount:1,angle:Math.random()*360,
+                  spread:360,startVelocity:90,
+                  colors:['#0f0','#0c0']});
+    }
+  </script>
+</body>
+</html>

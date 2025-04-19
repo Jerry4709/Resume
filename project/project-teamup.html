@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Up Mobile App | Project Details</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- DARK CODING THEME ---------- */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{
+      min-height:100%;
+      font-family:'Source Code Pro',monospace;
+      background:#12121a;
+      color:#c5c6c7;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:'';
+      position:fixed;inset:0;
+      background:linear-gradient(45deg,#12121a,#1e1e2e);
+      background-size:400% 400%;
+      animation:bgAnimate 20s ease infinite;
+      z-index:-2;
+    }
+    @keyframes bgAnimate{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    /* ---------- CARD / CONTAINER ---------- */
+    .container{
+      max-width:800px;
+      margin:3rem auto;
+      padding:2rem;
+      background:rgba(30,30,46,0.9);
+      border-left:5px solid #61dafb;
+      border-radius:6px;
+      position:relative;
+      transition:transform .3s ease;
+    }
+    /* Shift left when preview is open */
+    .container.shift-left{transform:translateX(-180px);}
+    /* Skip shifting & hide preview on narrow screens */
+    @media(max-width:900px){
+      .container.shift-left{transform:none;}
+      #hover-preview{display:none!important;}
+    }
+
+    h1{color:#61dafb;text-shadow:0 0 8px #61dafb;margin-bottom:1rem;}
+
+    .role-tags{display:flex;gap:.5rem;margin-bottom:2rem;}
+    .role{background:#27273a;color:#9af0ff;padding:.5rem 1rem;border-radius:4px;font-weight:600;}
+
+    /* ---------- THUMBNAILS ---------- */
+    .gallery{display:flex;gap:10px;margin-bottom:2rem;flex-wrap:wrap;}
+    .thumbnail img{
+      width:100px;cursor:pointer;border:1px solid #333;border-radius:4px;object-fit:contain;
+      transition:transform .2s ease;
+    }
+    .thumbnail img:hover{transform:scale(1.05);}
+
+    /* ---------- FIXED PREVIEW BOX ---------- */
+    #hover-preview{
+      position:fixed;
+      right:20px;
+      top:50%;
+      width:300px;max-width:38vw;
+      background:#1e1e2e;
+      border:2px solid #61dafb;
+      border-radius:4px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.8);
+      opacity:0;visibility:hidden;
+      transform:translateY(-50%) scale(.92);
+      transition:opacity .25s ease,transform .25s ease;
+      z-index:999;
+    }
+    #hover-preview.active{
+      opacity:1;visibility:visible;
+      transform:translateY(-50%) scale(1);
+    }
+    #hover-preview img{width:100%;height:auto;display:block;border-radius:2px;}
+
+    /* ---------- TEXT ---------- */
+    h2{color:#ffa7c4;margin-top:2rem;margin-bottom:1rem;border-bottom:2px solid #61dafb;display:inline-block;}
+    p,ul{margin-bottom:1rem;line-height:1.6;}
+    ul{margin-left:1.5rem;list-style:disc;}
+    a.back{
+      display:inline-block;margin-top:2rem;text-decoration:none;color:#61dafb;
+      border:1px solid #61dafb;padding:.5rem 1rem;border-radius:4px;
+      transition:background .2s ease;
+    }
+    a.back:hover{background:#61dafb;color:#12121a;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Team Up Mobile App</h1>
+
+    <div class="role-tags">
+      <div class="role">Frontend</div>
+      <div class="role">Backend</div>
+      <div class="role">Database</div>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="gallery">
+        <div class="thumbnail" data-src="/img/teamup/login.jpg">
+            <img src="/img/teamup/login.jpg" alt="Home Screen"/>
+          </div>      
+          <div class="thumbnail" data-src="/img/teamup/regis.jpg">
+        <img src="/img/teamup/regis.jpg" alt="Registration Screen"/>
+      </div>
+      <div class="thumbnail" data-src="/img/teamup/home.jpg">
+        <img src="/img/teamup/home.jpg" alt="Home Screen"/>
+      </div>
+
+      <div class="thumbnail" data-src="/img/teamup/create.jpg">
+        <img src="/img/teamup/create.jpg" alt="Create Event"/>
+      </div>
+      <div class="thumbnail" data-src="/img/teamup/Sche.jpg">
+        <img src="/img/teamup/Sche.jpg" alt="Schedule Screen"/>
+      </div>
+      <div class="thumbnail" data-src="/img/teamup/Profile.jpg">
+        <img src="/img/teamup/Profile.jpg" alt="Profile Screen"/>
+      </div>
+    </div>
+
+    <!-- FIXED PREVIEW -->
+    <div id="hover-preview"><img src="" alt="Preview Image"/></div>
+
+    <!-- DETAILS -->
+    <h2>Overview</h2>
+    <p>
+      <strong>Team Up</strong> is a mobile application for organizing pick‑up sports games.  
+      Users can create or join activity rooms, communicate in real‑time, and view locations on an integrated map for seamless team coordination.
+    </p>
+
+    <h2>Main Functions</h2>
+    <ul>
+      <li>User authentication (sign‑up / log‑in)</li>
+      <li>Create game rooms</li>
+      <li>Join or delete rooms</li>
+      <li>Edit room settings (name, time, capacity, etc.)</li>
+      <li>Edit personal profile</li>
+      <li>Integrated map for venues and directions</li>
+    </ul>
+
+    <h2>Tech Stack</h2>
+    <ul>
+      <li><strong>Frontend:</strong> Flutter</li>
+      <li><strong>Backend:</strong> Node.js + Express</li>
+      <li><strong>Database:</strong> MongoDB</li>
+      <li><strong>Real‑time:</strong> Socket.IO</li>
+      <li><strong>Maps:</strong> Google Maps SDK</li>
+    </ul>
+
+    <a href="main.html" class="back">← Back to Resume</a>
+  </div>
+
+  <!-- SCRIPT -------------------------------------------------------------- -->
+  <script>
+    const preview    = document.getElementById('hover-preview');
+    const container  = document.querySelector('.container');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+
+    // Open preview & shift card left on click
+    thumbnails.forEach(th => {
+      th.addEventListener('click', e => {
+        e.stopPropagation();                     // prevent immediate close
+        preview.querySelector('img').src = th.dataset.src;
+        preview.classList.add('active');
+        container.classList.add('shift-left');
+      });
+    });
+
+    // Click anywhere outside to close
+    document.addEventListener('click', () => {
+      preview.classList.remove('active');
+      container.classList.remove('shift-left');
+    });
+  </script>
+</body>
+</html>

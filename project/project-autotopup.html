@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ตรวจสอบ QR Code จากสลิป</title>
+</head>
+<body>
+  <h2>อัปโหลดสลิป</h2>
+  <input type="file" id="fileInput">
+  <button onclick="upload()">ตรวจสอบ</button>
+  <pre id="output"></pre>
+
+  <script>
+    async function upload() {
+      const file = document.getElementById('fileInput').files[0];
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const res = await fetch('http://localhost:8000/read_qr/', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
