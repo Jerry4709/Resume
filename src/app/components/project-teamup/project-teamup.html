@@ -1,0 +1,50 @@
+<div class="container" [class.shift-left]="isPreviewActive" (click)="closePreview()">
+  <h1>{{ 'PROJECT_TEAMUP.TITLE' | translate }}</h1>
+
+  <div class="role-tags">
+    <div class="role">{{ 'PROJECT_TEAMUP.ROLES.FRONTEND' | translate }}</div>
+    <div class="role">{{ 'PROJECT_TEAMUP.ROLES.BACKEND' | translate }}</div>
+    <div class="role">{{ 'PROJECT_TEAMUP.ROLES.DATABASE' | translate }}</div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery">
+    @for (img of images; track img; let i = $index) {
+      <div class="thumbnail" (click)="openPreview(i, $event)">
+        <img [src]="img" alt="Screenshot"/>
+      </div>
+    }
+  </div>
+
+  <!-- DETAILS -->
+  <h2>{{ 'PROJECT_TEAMUP.OVERVIEW_TITLE' | translate }}</h2>
+  <p [innerHTML]="'PROJECT_TEAMUP.OVERVIEW_DESC' | translate"></p>
+
+  <h2>{{ 'PROJECT_TEAMUP.MAIN_FUNCTIONS_TITLE' | translate }}</h2>
+  <ul>
+    <li>{{ 'PROJECT_TEAMUP.MF_1' | translate }}</li>
+    <li>{{ 'PROJECT_TEAMUP.MF_2' | translate }}</li>
+    <li>{{ 'PROJECT_TEAMUP.MF_3' | translate }}</li>
+    <li>{{ 'PROJECT_TEAMUP.MF_4' | translate }}</li>
+    <li>{{ 'PROJECT_TEAMUP.MF_5' | translate }}</li>
+    <li>{{ 'PROJECT_TEAMUP.MF_6' | translate }}</li>
+  </ul>
+
+  <h2>{{ 'PROJECT_TEAMUP.TECH_STACK_TITLE' | translate }}</h2>
+  <ul>
+    <li><strong>Frontend:</strong> Flutter</li>
+    <li><strong>Backend:</strong> Node.js + Express</li>
+    <li><strong>Database:</strong> MongoDB</li>
+    <li><strong>Real‑time:</strong> Socket.IO</li>
+    <li><strong>Maps:</strong> Google Maps SDK</li>
+  </ul>
+
+  <a routerLink="/" class="back">{{ 'PROJECT_TEAMUP.BACK_TO_RESUME' | translate }}</a>
+</div>
+
+<!-- FIXED PREVIEW -->
+<div id="hover-preview" [class.active]="isPreviewActive" (click)="closePreview()">
+  <button class="nav-btn prev-btn" (click)="prevImage($event)">&#10094;</button>
+  <img [src]="previewImage" alt="Preview Image" (click)="$event.stopPropagation()"/>
+  <button class="nav-btn next-btn" (click)="nextImage($event)">&#10095;</button>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>{{ 'PROJECT_EPROCUREMENT.TITLE' | translate }}</h1>
+
+  <div class="role-tags">
+    <div class="role">{{ 'PROJECT_EPROCUREMENT.ROLES.DEV' | translate }}</div>
+  </div>
+
+  <!-- DETAILS -->
+  <h2>{{ 'PROJECT_EPROCUREMENT.OVERVIEW_TITLE' | translate }}</h2>
+  <p [innerHTML]="'PROJECT_EPROCUREMENT.OVERVIEW_DESC' | translate"></p>
+
+  <h2>{{ 'PROJECT_EPROCUREMENT.MAIN_FUNCTIONS_TITLE' | translate }}</h2>
+  <ul>
+    <li>{{ 'PROJECT_EPROCUREMENT.MF_1' | translate }}</li>
+    <li>{{ 'PROJECT_EPROCUREMENT.MF_2' | translate }}</li>
+    <li>{{ 'PROJECT_EPROCUREMENT.MF_3' | translate }}</li>
+  </ul>
+
+  <a routerLink="/" class="back">{{ 'PROJECT_EPROCUREMENT.BACK_TO_RESUME' | translate }}</a>
+</div>

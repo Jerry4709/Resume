@@ -1,0 +1,118 @@
+<div id="vantaBg"></div>
+
+<article class="card">
+  <div class="lang-controls">
+    <button (click)="switchLanguage('th')" class="lang-btn" aria-label="Thai">🇹🇭</button>
+    <button (click)="switchLanguage('en')" class="lang-btn" aria-label="English">🇬🇧</button>
+  </div>
+
+  <!-- ======= HEADER ======= -->
+  <header style="text-align:center">
+    <img src="/img/me/dowload.jpg" alt="Wachira Temjit" class="profile-pic" loading="lazy" />
+    <h1>{{ 'HOME.TITLE' | translate }}</h1>
+    <span class="subtitle">{{ 'HOME.SUBTITLE' | translate }}</span>
+  </header>
+
+  <!-- ======= NAV ======= -->
+  <nav>
+    <span class="syntax-keyword">import</span> <span class="syntax-bracket">{{ '{' }}</span>
+    <a href="#about">{{ 'HOME.NAV.ABOUT' | translate }}</a>
+    <a href="#experience">{{ 'HOME.NAV.EXPERIENCE' | translate }}</a>
+    <a href="#skills">{{ 'HOME.NAV.SKILLS' | translate }}</a>
+    <a href="#projects">{{ 'HOME.NAV.PROJECTS' | translate }}</a>
+    <a href="#contact">{{ 'HOME.NAV.CONTACT' | translate }}</a>
+    <span class="syntax-bracket">{{ '}' }}</span> <span class="syntax-keyword">from</span> <span
+      class="syntax-string">"./portfolio"</span>;
+  </nav>
+
+  <!-- ======= ABOUT ======= -->
+  <section id="about">
+    <h2><span class="syntax-bracket">&lt;</span><span class="syntax-tag">section</span> <span
+        class="syntax-attr">id</span>=<span class="syntax-string">"about"</span><span class="syntax-bracket">&gt;</span>
+      <span class="syntax-comment">// {{ 'HOME.ABOUT.TITLE' | translate }}</span>
+    </h2>
+    <p>{{ 'HOME.ABOUT.DESC' | translate }}</p>
+  </section>
+
+  <!-- ======= EXPERIENCE ======= -->
+  <section id="experience">
+    <h2><span class="syntax-bracket">&lt;</span><span class="syntax-tag">section</span> <span
+        class="syntax-attr">id</span>=<span class="syntax-string">"experience"</span><span
+        class="syntax-bracket">&gt;</span> <span class="syntax-comment">// {{ 'HOME.EXPERIENCE.TITLE' | translate
+        }}</span></h2>
+    <div class="job">
+      <h3>{{ 'HOME.EXPERIENCE.JOB_TITLE' | translate }} <em>{{ 'HOME.EXPERIENCE.JOB_DATE' | translate }}</em></h3>
+      <ul>
+        <li>{{ 'HOME.EXPERIENCE.L1' | translate }}</li>
+        <li>{{ 'HOME.EXPERIENCE.L2' | translate }}</li>
+        <li>{{ 'HOME.EXPERIENCE.L3' | translate }}</li>
+        <li>{{ 'HOME.EXPERIENCE.L4' | translate }}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======= SKILLS ======= -->
+  <section id="skills">
+    <h2><span class="syntax-bracket">&lt;</span><span class="syntax-tag">section</span> <span
+        class="syntax-attr">id</span>=<span class="syntax-string">"skills"</span><span
+        class="syntax-bracket">&gt;</span> <span class="syntax-comment">// {{ 'HOME.SKILLS.TITLE' | translate }}</span>
+    </h2>
+    <div class="skills-grid">
+      <span class="skill">JavaScript & TypeScript</span>
+      <span class="skill">Dart</span>
+      <span class="skill">MQL5</span>
+      <span class="skill">React & Angular</span>
+      <span class="skill">HTML & CSS</span>
+      <span class="skill">AntDesign & Tailwind CSS</span>
+      <span class="skill">GO Fiber</span>
+      <span class="skill">Java Spring Boot</span>
+      <span class="skill">MySQL & Postgresql</span>
+      <span class="skill">Git & Github</span>
+      <span class="skill">Jenkins</span>
+      <span class="skill">Figma</span>
+    </div>
+  </section>
+
+  <!-- ======= PROJECTS ======= -->
+  <section id="projects">
+    <h2><span class="syntax-bracket">&lt;</span><span class="syntax-tag">section</span> <span
+        class="syntax-attr">id</span>=<span class="syntax-string">"projects"</span><span
+        class="syntax-bracket">&gt;</span> <span class="syntax-comment">// {{ 'HOME.PROJECTS.TITLE' | translate
+        }}</span></h2>
+    <a routerLink="/project-teamup" class="project-link">
+      <h3>{{ 'HOME.PROJECTS.P1_TITLE' | translate }}</h3>
+      <p>{{ 'HOME.PROJECTS.P1_DESC' | translate }}</p>
+    </a>
+    <a routerLink="/project-tradenews" class="project-link">
+      <h3>{{ 'HOME.PROJECTS.P2_TITLE' | translate }}</h3>
+      <p>{{ 'HOME.PROJECTS.P2_DESC' | translate }}</p>
+    </a>
+    <a routerLink="/project-eprocurement" class="project-link">
+      <h3>{{ 'HOME.PROJECTS.P3_TITLE' | translate }}</h3>
+      <p>{{ 'HOME.PROJECTS.P3_DESC' | translate }}</p>
+    </a>
+  </section>
+
+  <!-- ======= CONTACT ======= -->
+  <section id="contact">
+    <h2><span class="syntax-bracket">&lt;</span><span class="syntax-tag">section</span> <span
+        class="syntax-attr">id</span>=<span class="syntax-string">"contact"</span><span
+        class="syntax-bracket">&gt;</span> <span class="syntax-comment">// {{ 'HOME.CONTACT.TITLE' | translate }}</span>
+    </h2>
+    <p><i class='bx bx-envelope'></i> {{ 'HOME.CONTACT.EMAIL' | translate }} <a href="mailto:wachira@example.com"
+        class="external">wachira@example.com</a></p>
+    <p><i class='bx bxl-github'></i> {{ 'HOME.CONTACT.GITHUB' | translate }} <a href="https://github.com/wachira"
+        class="external" target="_blank" rel="noopener">github.com/wachira</a></p>
+    <p><i class='bx bxl-linkedin-square'></i> {{ 'HOME.CONTACT.LINKEDIN' | translate }} <a
+        href="https://linkedin.com/in/wachira" class="external" target="_blank"
+        rel="noopener">linkedin.com/in/wachira</a></p>
+  </section>
+
+  <footer>{{ 'HOME.FOOTER' | translate }}</footer>
+</article>
+
+<!-- ======= CONSOLE EASTER‑EGG ======= -->
+<!-- <div id="consoleOverlay">
+  <div id="consoleOutput"></div>
+  <input id="consoleInput" [placeholder]="'HOME.CONSOLE.PLACEHOLDER' | translate" autocomplete="off" />
+</div> -->

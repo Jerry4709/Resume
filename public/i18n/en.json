@@ -1,0 +1,104 @@
+{
+  "HOME": {
+    "TITLE": "Wachira Temjit",
+    "SUBTITLE": "Full-Stack Developer",
+    "NAV": {
+      "ABOUT": "About",
+      "EXPERIENCE": "Experience",
+      "SKILLS": "Skills",
+      "PROJECTS": "Projects",
+      "CONTACT": "Contact"
+    },
+    "ABOUT": {
+      "TITLE": "About",
+      "DESC": "Computer Engineering graduate and Full-Stack Developer with a track record of building end-to-end applications. My experience spans across developing complex financial systems, mobile platforms, and automated solutions using Angular, Golang, Dart, Express, MongoDB, and MQL5. I specialize in turning client requirements into deployed, high-performance systems."
+    },
+    "EXPERIENCE": {
+      "TITLE": "Experience",
+      "JOB_TITLE": "<Fullstack Developer (Intern)> @ AWA Co., Ltd",
+      "JOB_DATE": "(Feb 2025 – Feb 2026)",
+      "L1": "Collaborated with clients to translate business requirements into actionable technical specifications.",
+      "L2": "Engineered robust API endpoints using Golang/Express and integrated them with Postgresql for efficient data management.",
+      "L3": "Integrated APIs into the Angular frontend to deliver a seamless and responsive user experience.",
+      "L4": "Managed end-to-end deployment to production, ensuring system stability, high performance, and client satisfaction."
+    },
+    "SKILLS": {
+      "TITLE": "Skills"
+    },
+    "PROJECTS": {
+      "TITLE": "Projects",
+      "P1_TITLE": "Team Up Mobile App",
+      "P1_DESC": "App to create and join sports rooms with real-time chat.",
+      "P2_TITLE": "EA TradeNews",
+      "P2_DESC": "Automated trading EA triggered by news events.",
+      "P3_TITLE": "E-Procurement System",
+      "P3_DESC": "An electronic invoicing solution to digitalize billing processes."
+    },
+    "CONTACT": {
+      "TITLE": "Contact",
+      "EMAIL": "Email: ",
+      "GITHUB": "GitHub: ",
+      "LINKEDIN": "LinkedIn: "
+    },
+    "FOOTER": "© 2025 Wachira Temjit | Full-Stack Developer",
+    "CONSOLE": {
+      "PLACEHOLDER": "type help & press Enter…"
+    }
+  },
+  "PROJECT_TEAMUP": {
+    "TITLE": "Team Up Mobile App",
+    "ROLES": {
+      "FRONTEND": "Frontend",
+      "BACKEND": "Backend",
+      "DATABASE": "Database"
+    },
+    "OVERVIEW_TITLE": "Overview",
+    "OVERVIEW_DESC": "<strong>Team Up</strong> is a mobile application for organizing pick-up sports games. Users can create or join activity rooms, communicate in real-time, and view locations on an integrated map for seamless team coordination.",
+    "MAIN_FUNCTIONS_TITLE": "Main Functions",
+    "MF_1": "User authentication (sign-up / log-in)",
+    "MF_2": "Create game rooms",
+    "MF_3": "Join or delete rooms",
+    "MF_4": "Edit room settings (name, time, capacity, etc.)",
+    "MF_5": "Edit personal profile",
+    "MF_6": "Integrated map for venues and directions",
+    "TECH_STACK_TITLE": "Tech Stack",
+    "BACK_TO_RESUME": "← Back to Resume"
+  },
+  "PROJECT_TRADENEWS": {
+    "TITLE": "EA Forex Automation Tool",
+    "ROLES": {
+      "TRADER": "Algorithmic Trader",
+      "DEV": "Developer"
+    },
+    "OVERVIEW_TITLE": "Overview",
+    "OVERVIEW_DESC": "<strong>EA Forex Automation</strong> is a MetaTrader 5 Expert Advisor designed to automate trading during high-volatility news events. It uses pending buy/sell stop orders with adjustable lot sizes and trailing stop mechanisms to manage trades efficiently. The system includes license key verification to restrict unauthorized access and an Auto Trade mode with dynamic lot calculation based on account balance.",
+    "MAIN_FUNCTIONS_TITLE": "Main Functions",
+    "MF_1": "License verification system to block unauthorized users",
+    "MF_2": "Auto placing 5 levels of BuyStop and SellStop orders",
+    "MF_3": "Customizable lot sizes for each level",
+    "MF_4": "Dynamic lot calculation in Auto Trade mode",
+    "MF_5": "Built-in Take Profit (TP) and Trailing Stop system",
+    "MF_6": "Automatic order cancellation when price retreats",
+    "MF_7": "Balance-based risk control (optional)",
+    "MF_8": "Trading logs for review and analysis",
+    "TECH_STACK_TITLE": "Tech Stack",
+    "TS_1": "<strong>Platform:</strong> MetaTrader 5",
+    "TS_2": "<strong>Language:</strong> MQL5",
+    "TS_3": "<strong>Data Source:</strong> Economic Calendar / Broker Server",
+    "TS_4": "<strong>Environment:</strong> Desktop (Windows-based)",
+    "BACK_TO_RESUME": "← Back to Resume"
+  },
+  "PROJECT_EPROCUREMENT": {
+    "TITLE": "E-Procurement System",
+    "ROLES": {
+      "DEV": "Personal Project"
+    },
+    "OVERVIEW_TITLE": "Overview",
+    "OVERVIEW_DESC": "<strong>E-Procurement System</strong> is an electronic invoicing solution developed to digitalize and modernize traditional paper-based billing processes. It features a comprehensive dashboard for efficient creation, management, and step-by-step tracking of billing invoices.",
+    "MAIN_FUNCTIONS_TITLE": "Achievements & Features",
+    "MF_1": "Awarded the 3rd Prize in Project Presentation at the ICT Open House 2025 (University of Phayao).",
+    "MF_2": "Developed an E-Invoice module within an E-Procurement platform.",
+    "MF_3": "Designed a comprehensive dashboard for step-by-step tracking of invoices.",
+    "BACK_TO_RESUME": "← Back to Resume"
+  }
+}

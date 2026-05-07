@@ -1,0 +1,50 @@
+<div class="container" [class.shift-left]="isPreviewActive" (click)="closePreview()">
+  <h1>{{ 'PROJECT_TRADENEWS.TITLE' | translate }}</h1>
+
+  <div class="role-tags">
+    <div class="role">{{ 'PROJECT_TRADENEWS.ROLES.TRADER' | translate }}</div>
+    <div class="role">{{ 'PROJECT_TRADENEWS.ROLES.DEV' | translate }}</div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery">
+    @for (img of images; track img; let i = $index) {
+      <div class="thumbnail" (click)="openPreview(i, $event)">
+        <img [src]="img" alt="Screenshot"/>
+      </div>
+    }
+  </div>
+
+  <!-- DETAILS -->
+  <h2>{{ 'PROJECT_TRADENEWS.OVERVIEW_TITLE' | translate }}</h2>
+  <p [innerHTML]="'PROJECT_TRADENEWS.OVERVIEW_DESC' | translate"></p>
+
+  <h2>{{ 'PROJECT_TRADENEWS.MAIN_FUNCTIONS_TITLE' | translate }}</h2>
+  <ul>
+    <li>{{ 'PROJECT_TRADENEWS.MF_1' | translate }}</li>
+    <li>{{ 'PROJECT_TRADENEWS.MF_2' | translate }}</li>
+    <li>{{ 'PROJECT_TRADENEWS.MF_3' | translate }}</li>
+    <li>{{ 'PROJECT_TRADENEWS.MF_4' | translate }}</li>
+    <li>{{ 'PROJECT_TRADENEWS.MF_5' | translate }}</li>
+    <li>{{ 'PROJECT_TRADENEWS.MF_6' | translate }}</li>
+    <li>{{ 'PROJECT_TRADENEWS.MF_7' | translate }}</li>
+    <li>{{ 'PROJECT_TRADENEWS.MF_8' | translate }}</li>
+  </ul>
+
+  <h2>{{ 'PROJECT_TRADENEWS.TECH_STACK_TITLE' | translate }}</h2>
+  <ul>
+    <li [innerHTML]="'PROJECT_TRADENEWS.TS_1' | translate"></li>
+    <li [innerHTML]="'PROJECT_TRADENEWS.TS_2' | translate"></li>
+    <li [innerHTML]="'PROJECT_TRADENEWS.TS_3' | translate"></li>
+    <li [innerHTML]="'PROJECT_TRADENEWS.TS_4' | translate"></li>
+  </ul>
+
+  <a routerLink="/" class="back">{{ 'PROJECT_TRADENEWS.BACK_TO_RESUME' | translate }}</a>
+</div>
+
+<!-- FIXED PREVIEW -->
+<div id="hover-preview" [class.active]="isPreviewActive" (click)="closePreview()">
+  <button class="nav-btn prev-btn" (click)="prevImage($event)">&#10094;</button>
+  <img [src]="previewImage" alt="Preview Image" (click)="$event.stopPropagation()"/>
+  <button class="nav-btn next-btn" (click)="nextImage($event)">&#10095;</button>
+</div>
