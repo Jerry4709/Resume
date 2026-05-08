@@ -1,8 +1,15 @@
-<div class="container">
+<div class="container" [class.shift-left]="isPreviewActive" (click)="closePreview()">
   <h1>{{ 'PROJECT_EPROCUREMENT.TITLE' | translate }}</h1>
 
   <div class="role-tags">
     <div class="role">{{ 'PROJECT_EPROCUREMENT.ROLES.DEV' | translate }}</div>
+  </div>
+  <div class="gallery">
+    @for (img of images; track img; let i = $index) {
+      <div class="thumbnail" (click)="openPreview(i, $event)">
+        <img [src]="img" alt="Screenshot"/>
+      </div>
+    }
   </div>
 
   <!-- DETAILS -->
@@ -17,4 +24,10 @@
   </ul>
 
   <a routerLink="/" class="back">{{ 'PROJECT_EPROCUREMENT.BACK_TO_RESUME' | translate }}</a>
+</div>
+
+<div id="hover-preview" [class.active]="isPreviewActive" (click)="closePreview()">
+  <button class="nav-btn prev-btn" (click)="prevImage($event)">&#10094;</button>
+  <img [src]="previewImage" alt="Preview Image" (click)="$event.stopPropagation()"/>
+  <button class="nav-btn next-btn" (click)="nextImage($event)">&#10095;</button>
 </div>
