@@ -23,3 +23,25 @@
   transform: scale(1.1);
   background: var(--accent)33;
 }
+
+.visitor-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.visitor-stats .divider {
+  opacity: 0.5;
+}
+
+.visitor-stats i {
+  margin-right: 4px;
+  font-size: 1rem;
+  vertical-align: middle;
+}

@@ -43,6 +43,10 @@
     "FOOTER": "© 2025 วชิระ เต็มจิตต์ | นักพัฒนาซอฟต์แวร์ Full-Stack",
     "CONSOLE": {
       "PLACEHOLDER": "พิมพ์ help แล้วกด Enter…"
+    },
+    "VISITORS": {
+      "TOTAL": "ผู้เข้าชมทั้งหมด",
+      "DAILY": "ผู้เข้าชมรายวัน"
     }
   },
   "PROJECT_TEAMUP": {

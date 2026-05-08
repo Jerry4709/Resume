@@ -43,6 +43,10 @@
     "FOOTER": "© 2025 Wachira Temjit | Full-Stack Developer",
     "CONSOLE": {
       "PLACEHOLDER": "type help & press Enter…"
+    },
+    "VISITORS": {
+      "TOTAL": "Total Visitors",
+      "DAILY": "Daily Visitors"
     }
   },
   "PROJECT_TEAMUP": {

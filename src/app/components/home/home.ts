@@ -15,6 +15,9 @@ declare const confetti: any;
   styleUrls: ['./home.css']
 })
 export class HomeComponent implements AfterViewInit {
+  totalVisitors: number = 0;
+  dailyVisitors: number = 0;
+
   constructor(private translate: TranslateService) {}
   
   ngAfterViewInit() {
@@ -24,6 +27,7 @@ export class HomeComponent implements AfterViewInit {
     this.initGsap();
     this.initConsoleOverlay();
     this.initKonami();
+    this.initVisitorCounter();
   }
 
   private initVanta() {
@@ -137,6 +141,23 @@ export class HomeComponent implements AfterViewInit {
         });
       }
     }
+  }
+
+  private initVisitorCounter() {
+    const namespace = 'wachira_resume_2026';
+    const today = new Date().toISOString().split('T')[0];
+
+    // Fetch total visitors
+    fetch(`https://api.counterapi.dev/v1/${namespace}/visitors/up`)
+      .then(res => res.json())
+      .then(data => this.totalVisitors = data.count)
+      .catch(err => console.error('Error fetching total visitors', err));
+
+    // Fetch daily visitors
+    fetch(`https://api.counterapi.dev/v1/${namespace}/visitors_daily_${today}/up`)
+      .then(res => res.json())
+      .then(data => this.dailyVisitors = data.count)
+      .catch(err => console.error('Error fetching daily visitors', err));
   }
 
   switchLanguage(language: string) {
